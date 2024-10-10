@@ -1,6 +1,6 @@
-NAME = megaphone
+NAME = dreamjob
 
-SRC = main.cpp
+SRC = Account.cpp tests.cpp
 
 OBJ_DIR = obj/
 
@@ -20,7 +20,7 @@ $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 c clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJ_DIR)
 
 f fclean: clean
 	rm -rf $(OBJ_DIR)
