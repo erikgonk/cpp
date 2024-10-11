@@ -1,6 +1,6 @@
 // ************************************************************************** //
 //                                                                            //
-//                tests.cpp for GlobalBanksters United                        //
+ //                tests.cpp for GlobalBanksters United                        //
 //                Created on  : Thu Nov 20 23:45:02 1989                      //
 //                Last update : Wed Jan 04 09:23:52 1992                      //
 //                Made by : Brad "Buddy" McLane <bm@gbu.com>                  //
@@ -15,8 +15,11 @@
 
 int		main( void ) {
 
+// typedef => defines alias -- ex: std::vector<int> now equals ints_t
+// vector == list but more moldeable
 	typedef std::vector<Account::t>							  accounts_t;
 	typedef std::vector<int>								  ints_t;
+// std::pair => struct of 2, it stores two variables from equal or different types
 	typedef std::pair<accounts_t::iterator, ints_t::iterator> acc_int_t;
 
 	int	const				amounts[]	= { 42, 54, 957, 432, 1234, 0, 754, 16576 };
@@ -38,18 +41,22 @@ int		main( void ) {
 	ints_t::iterator	wit_end		= withdrawals.end();
 
 	Account::displayAccountsInfos();
+// std::for_each => applies a function to each element
+// mem_fun_ref == old lambda -- now it just applies displayStatus to acc_begin && acc_end
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
+// iterates the list acc_begin (account) && dep_begin (deposit)
 	for ( acc_int_t it( acc_begin, dep_begin );
 		  it.first != acc_end && it.second != dep_end;
 		  ++(it.first), ++(it.second) ) {
-
+// puts deposit into account -- first is account and secund deposit
 		(*(it.first)).makeDeposit( *(it.second) );
 	}
 
 	Account::displayAccountsInfos();
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
+// same thing as brefore but with accounts and withdrawals
 	for ( acc_int_t it( acc_begin, wit_begin );
 		  it.first != acc_end && it.second != wit_end;
 		  ++(it.first), ++(it.second) ) {
