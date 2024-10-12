@@ -6,7 +6,7 @@
 /*   By: erigonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:27:28 by erigonza          #+#    #+#             */
-/*   Updated: 2024/10/11 11:27:30 by erigonza         ###   ########.fr       */
+/*   Updated: 2024/10/12 14:59:57 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,7 +159,8 @@ void PhoneBook::search() {
 	std::cout << searched << std::endl;	
 	while (i < totalContacts)
 		i++;
-	if (searched > i - 1) {
+	std::cout << searched << i << std::endl;	
+	if (searched > i - 1 || searched >= 8) {
 		std::cout << RED << "The contact at index " << searched << " has not been created or is out of bounds" << RESET << std::endl;
 		return;
 	}
