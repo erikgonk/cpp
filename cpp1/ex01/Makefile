@@ -6,13 +6,13 @@
 #    By: erigonza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/11 13:19:02 by erigonza          #+#    #+#              #
-#    Updated: 2024/10/11 13:19:33 by erigonza         ###   ########.fr        #
+#    Updated: 2024/10/14 13:04:40 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = dreamjob
+NAME = ManyBraiiiiiiinnnzzzZ
 
-SRC = Account.cpp tests.cpp
+SRC = main.cpp Zombie.cpp zombieHorde.cpp
 
 OBJ_DIR = obj/
 
@@ -20,7 +20,7 @@ OBJ = $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 
 CC = c++ 
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -g -c 
+FLAGS = -Wall -Wextra -Werror -std=c++98 -c
 
 all: Makefile $(NAME)
 
@@ -29,7 +29,10 @@ $(OBJ_DIR)%.o: %.cpp Makefile
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) $(LDFLAGS) -o $(NAME)
+
+v valgrind: $(NAME)
+	@valgrind --leak-check=full --track-origins=yes ./$(NAME)  10 Boo
 
 c clean:
 	rm -rf $(OBJ_DIR)

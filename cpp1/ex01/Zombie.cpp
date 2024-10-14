@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erigonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/13 09:58:10 by erigonza          #+#    #+#             */
-/*   Updated: 2024/10/14 12:01:54 by erigonza         ###   ########.fr       */
+/*   Created: 2024/10/13 09:58:07 by erigonza          #+#    #+#             */
+/*   Updated: 2024/10/14 12:48:35 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream> 
 #include "Zombie.hpp"
 
-Zombie *newZombie(std::string name) {
-	Zombie *zombie= new Zombie(name);
-	return zombie;
+Zombie::Zombie()
+	: name("") {}
+
+Zombie::Zombie(std::string name)
+	: name(name) {} 
+
+Zombie::~Zombie() {
+	std::cout << "Zombie " << name << " has been destroyed ✟" << std::endl;
+}
+
+void Zombie::announce() {
+	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+std::string Zombie::getName() const {
+	return name;
+}
+
+void	Zombie::setName(std::string name) {
+	this -> name = name;
 }

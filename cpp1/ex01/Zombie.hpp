@@ -6,7 +6,7 @@
 /*   By: erigonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 09:58:24 by erigonza          #+#    #+#             */
-/*   Updated: 2024/10/14 12:01:21 by erigonza         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:44:32 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,18 @@
 #define WHITE   "\033[37m"
 
 class Zombie {
-
-	std::string name;
 	public:
 		Zombie ();
 		Zombie(std::string name);
 		~Zombie();
 		void			announce(void);
+
 		std::string		getName() const;
+		void			setName(std::string name);
+	private:
+		std::string name;
 };
 
-Zombie*		newZombie(std::string name);
-void		randomChump(std::string name);
+Zombie* zombieHorde(int N, std::string name);
 
 #endif
