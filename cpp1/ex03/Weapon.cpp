@@ -1,26 +1,21 @@
 #include <string>
-#include "attacks.hpp"
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-Weapon::Weapon(const std::string& type) 
-	: type(type) {}
-
-Weapon::Weapon(const Weapon& other) {
-    this->type = other.type;
+Weapon::Weapon( std::string type )
+{
+    this->type = type;
 }
 
-Weapon& Weapon::operator=(const Weapon& other) {
-    if (this != &other) {
-        this->type = other.type;
-    }
-    return *this;
+Weapon::~Weapon( void ) {}
+
+std::string &Weapon::getType(void)
+{
+    return this->type;
 }
 
-Weapon::~Weapon() {}
-
-const std::string& Weapon::getType() const {
-	return type;
-}
-
-void Weapon::setType(const std::string& type) {
-	this->type = type;
+void Weapon::setType(std::string type)
+{
+    this->type = type;
 }

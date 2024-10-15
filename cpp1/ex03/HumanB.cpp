@@ -1,40 +1,28 @@
 #include <string>
 #include <iostream>
-#include "attacks.hpp"
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-HumanB::HumanB(const std::string& name)
-	: name(name), weapon(NULL) {
+HumanB::HumanB(std::string name) : name(name), weapon(NULL)
+{
+    this->name = name;
 }
 
-HumanB::HumanB(const HumanB& other)
-	: name(other.name), weapon(other.weapon) {}
-
-HumanB& HumanB::operator=(const HumanB& other) {
-	if (this != &other) {
-		name = other.name;
-		weapon = other.weapon;
-	}
-	return *this;
+HumanB::~HumanB( void )
+{
+    std::cout << "HumanB destructor called" << std::endl;
 }
 
-HumanB::~HumanB() {};
-
-const std::string& HumanB::getName() const {
-	return name;
-}
-
-void HumanB::setName(const std::string& name) {
-	this->name = name;
-}
-
-void HumanB::setWeapon(Weapon& weapon) {
-	this->weapon = &weapon;
-}
-
-void HumanB::attack() const {
+void HumanB::attack() {
 	if (weapon) {
 		std::cout << name << " attacks with their " << BOLD << RED << weapon->getType() << RESET << std::endl;
 	} else {
-		std::cout << "... " << BLUE << name << " has no weapon!" << RESET << std::endl;
+		std::cout << "... " << BLUE << this->name << " has no weapon!" << RESET << std::endl;
 	};
+}
+
+void HumanB::setWeapon( Weapon &weapon )
+{
+    this->weapon = &weapon;
 }

@@ -1,29 +1,17 @@
 #include <string>
 #include <iostream>
-#include "attacks.hpp"
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-HumanA::HumanA(const std::string& name, Weapon& weapon)
-	: name(name), weapon(weapon) {}
+HumanA::HumanA( std::string _name, Weapon &weapon ) : _name(_name), _weapon(weapon) {}
 
-HumanA::HumanA(const HumanA& other) 
-	: name(other.name), weapon(other.weapon) {} // Copy constructor
-
-HumanA& HumanA::operator=(const HumanA& other) { // Assignment operator
-    if (this != &other) { // Self-assignment check
-        name = other.name;
-    }
-    return *this;
+HumanA::~HumanA( void )
+{
+    std::cout << "HumanA destructor called" << std::endl;
 }
 
-HumanA::~HumanA() {}
-
-const  std::string& HumanA::getName() const {
-	return name;
-}
-
-void HumanA::setName(const std::string& name) {
-	this->name = name;
-}
-void HumanA::attack() const {
-	std::cout << name << " attacks with their " << BOLD_RED << weapon.getType() << RESET << std::endl;
+void HumanA::attack( void )
+{
+	std::cout << this->_name << " attacks with their " << BOLD_RED << this->_weapon.getType() << RESET << std::endl;
 }

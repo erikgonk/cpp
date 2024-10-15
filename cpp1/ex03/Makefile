@@ -6,11 +6,12 @@
 #    By: erigonza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/11 13:19:02 by erigonza          #+#    #+#              #
-#    Updated: 2024/10/14 16:03:54 by erigonza         ###   ########.fr        #
+#    Updated: 2024/10/15 14:05:56 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = attacks
+NAME = Unnecessary\ violence
+
 
 SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
@@ -20,7 +21,7 @@ OBJ = $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 
 CC = c++ 
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -c
+FLAGS = -Wall -Wextra -Werror -std=c++98 -c -c
 
 all: Makefile $(NAME)
 
