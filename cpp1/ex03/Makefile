@@ -6,12 +6,11 @@
 #    By: erigonza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/11 13:19:02 by erigonza          #+#    #+#              #
-#    Updated: 2024/10/15 14:05:56 by erigonza         ###   ########.fr        #
+#    Updated: 2024/10/16 10:15:09 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Unnecessary\ violence
-
 
 SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
