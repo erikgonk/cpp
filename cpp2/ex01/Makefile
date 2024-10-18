@@ -6,11 +6,11 @@
 #    By: erigonza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/11 13:19:02 by erigonza          #+#    #+#              #
-#    Updated: 2024/10/17 09:22:31 by erigonza         ###   ########.fr        #
+#    Updated: 2024/10/17 10:14:04 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := myFirstOrthodoxClass
+NAME := towardsAMoreUsefulFxed_pointNumberClass
 
 SRC := main.cpp Fixed.cpp
 
@@ -20,7 +20,7 @@ OBJ := $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 
 CC := c++ 
 
-FLAGS = :-Wall -Wextra -Werror -std=c++98 -g -c 
+FLAGS := -Wall -Wextra -Werror -std=c++98 -g -c 
 
 all: Makefile $(NAME)
 
