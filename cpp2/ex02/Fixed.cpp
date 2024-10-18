@@ -71,7 +71,6 @@ std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
 }
 
 // NEW OPERATOR OVERLOADS EX02
-// ===========================
 
 // Overloaded comparison operators
 bool Fixed::operator>(const Fixed &rhs) const {
@@ -152,11 +151,9 @@ Fixed Fixed::operator--(int) {
 }
 
 // END NEW OPERATOR OVERLOADS
-// ==========================
 
 
 // NEW STATIC MEMBER FUNCTIONS
-// ===========================
 // Static member functions
 const Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
     return (a < b) ? a : b;
