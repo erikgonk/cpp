@@ -6,13 +6,13 @@
 #    By: erigonza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/11 13:19:02 by erigonza          #+#    #+#              #
-#    Updated: 2024/10/18 19:20:22 by erigonza         ###   ########.fr        #
+#    Updated: 2024/10/18 19:32:17 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := NowWeAreTalking
+NAME := bsp
 
-SRC := main.cpp Fixed.cpp 
+SRC := main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 OBJ_DIR := obj/
 
