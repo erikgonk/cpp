@@ -6,7 +6,7 @@
 /*   By: erigonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 09:58:02 by erigonza          #+#    #+#             */
-/*   Updated: 2024/10/14 13:29:14 by erigonza         ###   ########.fr       */
+/*   Updated: 2024/10/18 16:38:45 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <stdlib.h>
 #include <cstdlib>
 #include <string>
+#include <cstring>
+#include <limits.h>
 #include "Zombie.hpp"
 
 bool	isNum(const std::string &str) {
@@ -30,7 +32,7 @@ bool	isNum(const std::string &str) {
 void	help() {
 	sleep(1);
 	std::cout << std::endl << "                                    HELP, 😱... Zombies  🧟 🧟🧟🧟.... 😨" << std::endl;
-	sleep(2);
+	sleep(1);
 	std::cout << std::endl << "Dont you worry, van Helsing to rescue..🏃" << std::endl;
 	sleep(3);
 }
@@ -38,10 +40,13 @@ void	help() {
 int	main(int argc, char *argv[]) {
     system("clear");
 	if (argc != 1 && argc != 3) {
-		std::cout << "\nWrong number of inputs" << std::endl;
-		return 0;
+		std::cout << std::endl << "\nWrong number of inputs" << std::endl << std::endl;
+		return 1;
 	} else if (argv[1] && !isNum(argv[1])) {
-		std::cout << "\nThe input must be the ./ManyBraiiiiiiinnnzzzZ, a number && a name" << std::endl;
+		std::cout << std::endl << "The input must be <./ManyBraiiiiiiinnnzzzZ> <number> and <name>" << std::endl << std::endl;
+		return 1;
+	} else if (argv[1] && strlen(argv[1]) > 3) {
+		std::cout << std::endl << "error: number too long" << std::endl << std::endl;
 		return 1;
 	}
 	std::cout << "                         _____" << std::endl;
@@ -83,10 +88,12 @@ int	main(int argc, char *argv[]) {
 		delete[] horde;
 	} else if (argc == 3) {
 		int num = atoi(argv[1]);
+		if (num >= INT_MAX)
+			return false;
 		Zombie *horde = zombieHorde(num, argv[2]);
 		for (int i = 0; i < num; i++) {
 			if (num > 10)
-				usleep(30000);
+				usleep(20000);
 			else if (num <= 10)
 				usleep(100000);
 			horde[i].announce();

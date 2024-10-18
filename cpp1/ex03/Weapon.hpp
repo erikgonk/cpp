@@ -6,7 +6,7 @@
 /*   By: erigonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:10:57 by erigonza          #+#    #+#             */
-/*   Updated: 2024/10/15 13:48:15 by erigonza         ###   ########.fr       */
+/*   Updated: 2024/10/18 15:30:26 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Weapon {
     private:
         std::string type;
     public:
-        Weapon( std::string type );
+        Weapon(const std::string type );
         ~Weapon( void );
         std::string   &getType( void );
         void                setType( std::string type) ;

@@ -6,7 +6,7 @@
 /*   By: erigonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:35:43 by erigonza          #+#    #+#             */
-/*   Updated: 2024/10/16 12:45:51 by erigonza         ###   ########.fr       */
+/*   Updated: 2024/10/18 17:15:43 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ int main(int ac, char *av[])
 	std::cout << "\033[2J\033[H" << std::endl;
 	if (ac != 2) {
 		std::cout << RED_BACKGROUND << "error: wrong num of args" << std::endl
-			<< "Please enter: <flag>" <<
-			RESET << std::endl << std::endl;
+			<< "Please enter: <flag>" << RESET << std::endl << std::endl;
 		return 0;
 	}
 
@@ -41,6 +40,40 @@ Harl::Harl( void )
 Harl::~Harl( void ) {}
 
 int Harl::exec( std::string message ) {
+    int levelIndex = -1;  // Index for the matched log level
+
+    // Determine the log level based on the message
+    for (int i = 0; i < 4; ++i) {
+        levelIndex = (message == levels[i]) * i + (message != levels[i]) * levelIndex; 
+    }
+
+    // Use switch to call the appropriate function and execute subsequent levels
+    switch (levelIndex) {
+        case 0:
+            (this->*f[0])();  // Call debug
+            (this->*f[1])();  // Call info
+            (this->*f[2])();  // Call info
+            (this->*f[3])();  // Call info
+			break;
+        case 1:
+            (this->*f[1])();  // Call info
+            (this->*f[2])();  // Call info
+            (this->*f[3])();  // Call info
+			break;
+        case 2:
+            (this->*f[2])();  // Call warning
+            (this->*f[3])();  // Call info
+			break;
+        case 3:
+            (this->*f[3])();  // Call error
+            break;
+        default:
+            // If no valid level is found, print the default message
+            std::cout << RED << BOLD << "[ Probably complaining about insignificant problems ]"
+                << RESET << std::endl << std::endl;
+            return 1;
+    }
+/*
 	int	flag = 0;
     for ( int i = 0; i < 4; i++) {
             if (!message.compare(levels[i]) || flag == 1) {
@@ -52,7 +85,7 @@ int Harl::exec( std::string message ) {
 		std::cout << RED << BOLD << "[ Probably complaining about insignificant problems ]"
 			<< RESET << std::endl << std::endl;
 		return 1;
-	}
+	}*/
 	return 0;
 }
 

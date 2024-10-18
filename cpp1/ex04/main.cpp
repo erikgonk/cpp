@@ -6,13 +6,14 @@
 /*   By: erigonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:12:31 by erigonza          #+#    #+#             */
-/*   Updated: 2024/10/16 11:00:38 by erigonza         ###   ########.fr       */
+/*   Updated: 2024/10/18 15:34:03 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <limits.h>
 
 #define RESET   "\033[0m"
 #define BOLD     "\033[1m"
