@@ -6,7 +6,7 @@
 /*   By: erigonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:35:43 by erigonza          #+#    #+#             */
-/*   Updated: 2024/10/18 17:15:43 by erigonza         ###   ########.fr       */
+/*   Updated: 2024/10/19 11:47:33 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,39 +41,29 @@ Harl::~Harl( void ) {}
 
 int Harl::exec( std::string message ) {
     int levelIndex = -1;  // Index for the matched log level
-
+	std::string res = message;
+	for (std::string::size_type i = 0; i < res.length(); ++i) res[i] = std::toupper(res[i]); 
     // Determine the log level based on the message
     for (int i = 0; i < 4; ++i) {
-        levelIndex = (message == levels[i]) * i + (message != levels[i]) * levelIndex; 
+        levelIndex = (res == levels[i]) * i + (res != levels[i]) * levelIndex; 
     }
-
-    // Use switch to call the appropriate function and execute subsequent levels
     switch (levelIndex) {
         case 0:
             (this->*f[0])();  // Call debug
-            (this->*f[1])();  // Call info
-            (this->*f[2])();  // Call info
-            (this->*f[3])();  // Call info
-			break;
         case 1:
             (this->*f[1])();  // Call info
-            (this->*f[2])();  // Call info
-            (this->*f[3])();  // Call info
-			break;
         case 2:
             (this->*f[2])();  // Call warning
-            (this->*f[3])();  // Call info
-			break;
         case 3:
             (this->*f[3])();  // Call error
             break;
         default:
-            // If no valid level is found, print the default message
             std::cout << RED << BOLD << "[ Probably complaining about insignificant problems ]"
                 << RESET << std::endl << std::endl;
             return 1;
     }
-/*
+/* 
+ * This is a better version but slower bc switch is faster than for
 	int	flag = 0;
     for ( int i = 0; i < 4; i++) {
             if (!message.compare(levels[i]) || flag == 1) {
