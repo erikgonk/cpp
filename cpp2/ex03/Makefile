@@ -6,7 +6,7 @@
 #    By: erigonza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/19 12:02:57 by erigonza          #+#    #+#              #
-#    Updated: 2024/10/19 12:02:59 by erigonza         ###   ########.fr        #
+#    Updated: 2024/10/21 10:50:36 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ FLAGS := -Wall -Wextra -Werror -std=c++98 -g -c
 
 all: Makefile $(NAME)
 
-$(OBJ_DIR)%.o: %.cpp Makefile
+$(OBJ_DIR)%.o: %.cpp Makefile Point.hpp Fixed.hpp
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(FLAGS) -c $< -o $@
 
