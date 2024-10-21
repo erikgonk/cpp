@@ -6,7 +6,7 @@
 /*   By: erigonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 12:02:33 by erigonza          #+#    #+#             */
-/*   Updated: 2024/10/19 12:02:34 by erigonza         ###   ########.fr       */
+/*   Updated: 2024/10/21 12:03:43 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
      * The function returns true if all Barycentric coordinates are non-negative, indicating that
         the point is inside the triangle. Otherwise, it returns false.
     */
-    return alpha >= 0 && beta >= 0 && gamma >= 0;
+    return alpha > 0 && beta > 0 && gamma > 0;
 }

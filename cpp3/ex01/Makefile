@@ -6,11 +6,11 @@
 #    By: erigonza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/11 13:19:02 by erigonza          #+#    #+#              #
-#    Updated: 2024/10/21 11:10:57 by erigonza         ###   ########.fr        #
+#    Updated: 2024/10/21 11:23:56 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= aaaaaaand_Open
+NAME    	:= serena_myLove
 
 SRC			:= main.cpp ClapTrap.cpp
 
