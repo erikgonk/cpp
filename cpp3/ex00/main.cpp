@@ -6,7 +6,7 @@
 /*   By: erigonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 12:01:02 by erigonza          #+#    #+#             */
-/*   Updated: 2024/10/21 11:31:55 by erigonza         ###   ########.fr       */
+/*   Updated: 2024/10/22 12:02:52 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ int main() {
     std::cout << BLUE << "Energy Points after setter: " << customClapTrap.getEnergyPoints() << RESET << std::endl;
     std::cout << BOLD << RED << "Attack Damage after setter: " << customClapTrap.getAttackDamage() << RESET << std::endl;
     std::cout << BOLD << "=========================\n" << RESET ;
-
-    // Add more test cases as needed
 
     return 0;
 }

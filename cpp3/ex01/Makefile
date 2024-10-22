@@ -6,13 +6,13 @@
 #    By: erigonza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/11 13:19:02 by erigonza          #+#    #+#              #
-#    Updated: 2024/10/21 11:23:56 by erigonza         ###   ########.fr        #
+#    Updated: 2024/10/22 12:12:34 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME    	:= serena_myLove
 
-SRC			:= main.cpp ClapTrap.cpp
+SRC			:= main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJ_DIR		:= obj/
 
@@ -24,7 +24,7 @@ FLAGS		:= -Wall -Wextra -Werror -std=c++98 -g -c
 
 all: Makefile $(NAME)
 
-$(OBJ_DIR)%.o: %.cpp Makefile ClapTrap.hpp
+$(OBJ_DIR)%.o: %.cpp Makefile ClapTrap.hpp ScavTrap.hpp
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(FLAGS) -c $< -o $@
 
