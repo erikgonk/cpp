@@ -6,13 +6,13 @@
 #    By: erigonza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/11 13:19:02 by erigonza          #+#    #+#              #
-#    Updated: 2024/10/23 10:07:25 by erigonza         ###   ########.fr        #
+#    Updated: 2024/10/23 12:10:38 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME    	:= nowItIsWeird
 
-SRC			:= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRC			:= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 OBJ_DIR		:= obj/
 

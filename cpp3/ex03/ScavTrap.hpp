@@ -6,7 +6,7 @@
 /*   By: erigonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:11:10 by erigonza          #+#    #+#             */
-/*   Updated: 2024/10/23 10:40:42 by erigonza         ###   ########.fr       */
+/*   Updated: 2024/10/23 12:06:32 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,16 @@ class ScavTrap : virtual public ClapTrap
 
         // MEMBER FUNCTIONS
 
-        void attack(const std::string& target);
-        void guardGate( void );
+        void    guardGate( void );
 
     private:
         static const unsigned int hitPoints = 100;
-        static const unsigned int energyPoints = 50;
         static const unsigned int attackDamage = 20;
+
+    protected:
+        void    attack( const std::string& target );
+        static const unsigned int energyPoints = 50;
+
 };
 
 #endif

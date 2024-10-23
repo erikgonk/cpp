@@ -6,7 +6,7 @@
 /*   By: erigonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 12:01:02 by erigonza          #+#    #+#             */
-/*   Updated: 2024/10/23 10:23:04 by erigonza         ###   ########.fr       */
+/*   Updated: 2024/10/23 11:58:20 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@
  * Virtual inheritance is a C++ technique that ensures only one copy of a
  * base class's member variables are inherited by grandchild derived classes.
 */
+
 class DiamondTrap : public ScavTrap, public FragTrap
 {
     public:
         // DEFAULT CONSTRUCTORS AND DESTRUCTORS
-        // ====================================
 
         DiamondTrap( void );
         DiamondTrap( DiamondTrap const & src );
@@ -40,22 +40,18 @@ class DiamondTrap : public ScavTrap, public FragTrap
         DiamondTrap & operator=( DiamondTrap const & rhs);
 
         // CONSTRUCTOR WITH PARAMETERS
-		// ===========================
 
         DiamondTrap(std::string name);
 
 		// MEMBER FUNCTIONS
-        // ================
 
         void    whoAmI( void );
 
         // OVERLOADS
-        // =========
 
         void    attack(std::string const & target);
 
         // ACCESSORS
-        // =========
 
         unsigned int    getHitPoints( void ) const;
         unsigned int    getEnergyPoints( void ) const;
