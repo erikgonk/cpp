@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: erigonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 19:04:08 by erigonza          #+#    #+#             */
-/*   Updated: 2024/10/26 14:30:08 by erigonza         ###   ########.fr       */
+/*   Created: 2024/10/26 17:28:21 by erigonza          #+#    #+#             */
+/*   Updated: 2024/10/26 17:28:29 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "WrongAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
@@ -20,7 +20,7 @@
 int main() {
 	std::cout << "\033[2J\033[H" << std::endl;
 	const int size = 4;
-	Animal* animals[size];
+	AAnimal* animals[size];
 
 	std::cout << YELLOW << BOLD << "Creating Animals..." << RESET << std::endl;
 	for (int i = 0; i < size / 2; i++) {
@@ -39,8 +39,11 @@ int main() {
 			dog->getBrain().setIdeas("Hunt this annoying car 🚗", 3);
 			std::cout << GREEN << "Dog #" << i + 1 << "'s ideas: " << std::endl;
 			std::cout << dog->getBrain().getIdeas(0) << std::endl;
+			sleep(1);
 			std::cout << dog->getBrain().getIdeas(1) << std::endl;
+			sleep(1);
 			std::cout << dog->getBrain().getIdeas(2) << std::endl;
+			sleep(1);
 			std::cout << dog->getBrain().getIdeas(3) << RESET << std::endl;
 			sleep(1);
 		}
@@ -53,13 +56,17 @@ int main() {
 			std::cout << MAGENTA << "Cat #" << i + 1 << "'s ideas: " << std::endl;
 			sleep(1);
 			std::cout << cat->getBrain().getIdeas(0) << std::endl;
+			sleep(1);
 			std::cout << cat->getBrain().getIdeas(1) << std::endl;
+			sleep(1);
 			std::cout << cat->getBrain().getIdeas(2) << std::endl;
+			sleep(1);
 			std::cout << cat->getBrain().getIdeas(3) << RESET << std::endl;
 			sleep(1);
 		}
 	}
 	std::cout << BLUE << std::endl << "Creating deep copy of Cat and Dog..." << std::endl << RESET;
+	sleep(1);
 	Dog* copyDog = new Dog(*(Dog*)animals[0]);
 	Cat* copyCat = new Cat(*(Cat*)animals[size / 2]);
 	sleep(1);
@@ -76,7 +83,7 @@ int main() {
 	std::cout << GREEN << "Copied Dog's idea remains: " << copyDog->getBrain().getIdeas(0) << RESET << std::endl;
 
 	std::cout << YELLOW << std::endl << "Deleting all animals..." << std::endl << RESET;
-	sleep(1);
+	sleep(3);
 	for (int i = 0; i < size; i++) {
 		delete animals[i];
 	}
@@ -85,6 +92,5 @@ int main() {
 	delete copyCat;
 
 	std::cout << BLUE << BOLD << "All animals deconstructed!" << RESET << std::endl;
-
 	return 0;
 }
