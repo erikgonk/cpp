@@ -5,18 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 13:46:24 by erigonza          #+#    #+#             */
-/*   Updated: 2025/02/12 13:46:25 by erigonza         ###   ########.fr       */
+/*   Created: 2025/02/12 13:45:04 by erigonza          #+#    #+#             */
+/*   Updated: 2025/02/12 14:15:00 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
+# include "Form.hpp"
 # include <iostream>
 
 # define MAX_GRADE 1
 # define MIN_GRADE 150
+
+class	Form;
 
 class Bureaucrat
 {
@@ -31,6 +34,7 @@ class Bureaucrat
 	int getGrade(void) const;
 	void incrementGrade(void);
 	void decrementGrade(void);
+	void signForm(Form &form);
 
 	class GradeTooHighException : public std::exception
 	{
@@ -52,4 +56,3 @@ class Bureaucrat
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
 
 #endif
-

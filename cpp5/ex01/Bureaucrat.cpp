@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 13:46:16 by erigonza          #+#    #+#             */
-/*   Updated: 2025/02/12 13:46:17 by erigonza         ###   ########.fr       */
+/*   Created: 2025/02/12 13:44:57 by erigonza          #+#    #+#             */
+/*   Updated: 2025/02/12 14:48:27 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,19 @@ const char *Bureaucrat::GradeTooHighException::what(void) const throw()
 const char *Bureaucrat::GradeTooLowException::what(void) const throw()
 {
 	return ("Grade too low!");
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << name_ << " signed " << form.getName() << '\n';
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << name_ << " couldn't sign " << form.getName() << " because " << e.what() << '\n';
+	}
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat)
