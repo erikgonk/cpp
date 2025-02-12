@@ -6,11 +6,11 @@
 #    By: erigonza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 17:28:37 by erigonza          #+#    #+#              #
-#    Updated: 2025/01/29 12:07:26 by erigonza         ###   ########.fr        #
+#    Updated: 2025/02/12 13:23:49 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= Mommy, when I grow up, I want to be a bureaucrat!
+NAME		:= bureaucrat
 
 SRC			:= main.cpp Bureaucrat.cpp
 
