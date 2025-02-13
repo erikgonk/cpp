@@ -6,7 +6,7 @@
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:45:04 by erigonza          #+#    #+#             */
-/*   Updated: 2025/02/12 14:15:00 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:38:21 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,34 +23,34 @@ class	Form;
 
 class Bureaucrat
 {
-  public:
-	Bureaucrat(void);
-	Bureaucrat(const std::string &name, int grade);
-	Bureaucrat(const Bureaucrat &other);
-	Bureaucrat &operator=(const Bureaucrat &other);
-	~Bureaucrat(void);
+	public:
+		Bureaucrat(void);
+		Bureaucrat(const std::string &name, int grade);
+		Bureaucrat(const Bureaucrat &other);
+		Bureaucrat &operator=(const Bureaucrat &other);
+		~Bureaucrat(void);
 
-	const std::string &getName(void) const;
-	int getGrade(void) const;
-	void incrementGrade(void);
-	void decrementGrade(void);
-	void signForm(Form &form);
+		const std::string &getName(void) const;
+		int getGrade(void) const;
+		void incrementGrade(void);
+		void decrementGrade(void);
+		void signForm(Form &form);
 
-	class GradeTooHighException : public std::exception
-	{
-		public:
-		const char *what(void) const throw();
-	};
+		class GradeTooHighException : public std::exception
+		{
+			public:
+			const char *what(void) const throw();
+		};
 
-	class GradeTooLowException : public std::exception
-	{
-		public:
-		const char *what(void) const throw();
-	};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+			const char *what(void) const throw();
+		};
 
-  private:
-	const std::string name_;
-	int grade_;
+	private:
+		const std::string name_;
+		int grade_;
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);

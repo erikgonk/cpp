@@ -6,7 +6,7 @@
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:45:04 by erigonza          #+#    #+#             */
-/*   Updated: 2025/02/12 16:52:25 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:38:32 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ class Bureaucrat
 		const char *what(void) const throw();
 	};
 
-  private:
-	const std::string name_;
-	int grade_;
+	private:
+		const std::string name_;
+		int grade_;
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
