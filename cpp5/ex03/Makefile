@@ -6,17 +6,23 @@
 #    By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 17:28:37 by erigonza          #+#    #+#              #
-#    Updated: 2025/02/13 11:54:45 by erigonza         ###   ########.fr        #
+#    Updated: 2025/02/13 12:05:31 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= bureaucrat
+NAME		:= Bureaucrat...Form...
 
-SRC			:= main.cpp Bureaucrat.cpp
+SRC			:= main.cpp Bureaucrat.cpp AForm.cpp Intern.cpp \
+				ShrubberyCreationForm.cpp \
+				RobotomyRequestForm.cpp \
+				PresidentialPardonForm.cpp
 
 OBJ_DIR		:= obj/
 
-HEADERS		:= Bureaucrat.hpp
+HEADERS		:= Bureaucrat.hpp AForm.hpp Intern.cpp \
+				ShrubberyCreationForm.hpp \
+				RobotomyRequestForm.hpp \
+				PresidentialPardonForm.hpp
 
 OBJ			:= $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 
@@ -35,17 +41,19 @@ $(OBJ_DIR)%.o: %.cpp $(HEADERS) Makefile
 
 $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	clear
 
 v valgrind: $(NAME)
 	@valgrind --leak-check=full --track-origins=yes ./$(NAME)
 
 c clean:
 	$(RM) $(OBJ)
+	$(RM) -f Toad_shrubbery # -f -> you're telling rm to be "silent" about files that don't exist
 
 f fclean: clean
 	$(RM) $(OBJ_DIR)
 	$(RM) $(NAME)
-	
+
 r re: fclean all
 
 e execute:

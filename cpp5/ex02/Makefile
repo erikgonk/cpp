@@ -6,11 +6,11 @@
 #    By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 17:28:37 by erigonza          #+#    #+#              #
-#    Updated: 2025/02/12 18:48:10 by erigonza         ###   ########.fr        #
+#    Updated: 2025/02/13 11:50:29 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= bureaucratAForm
+NAME		:= Bureaucrat...Form...
 
 SRC			:= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
@@ -22,28 +22,38 @@ OBJ			:= $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 
 CC			:= c++
 
-FLAGS		:= -Wall -Wextra -Werror -std=c++98 -pedantic -g
+FLAGS		:= -Wall -Wextra -Werror -std=c++98 -g
+
+RM			:= @/bin/rm -rf
 
 all: Makefile $(NAME)
 
 $(OBJ_DIR)%.o: %.cpp $(HEADERS) Makefile
-	mkdir -p $(OBJ_DIR)
-	$(CC) $(FLAGS) -c $< -o $@
+	@printf "\033[0;33m\r🔨 $< ✅ \033[0m"
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	clear
 
 v valgrind: $(NAME)
 	@valgrind --leak-check=full --track-origins=yes ./$(NAME)
 
 c clean:
-	/bin/rm -f $(OBJ)
+	$(RM) $(OBJ)
+	$(RM) -f Toad_shrubbery # By using -f, you're telling rm to be "silent" about files that don't exist
 
 f fclean: clean
-	/bin/rm -rf $(OBJ_DIR)
-	/bin/rm -f $(NAME)
-	
+	$(RM) $(OBJ_DIR)
+	$(RM) $(NAME)
+
 r re: fclean all
 
-.PHONY: all clean fclean re v c f r
+e execute:
+	@make
+	clear
+	@./$(NAME)
+
+.PHONY: all clean fclean re v c f r e execute
 
