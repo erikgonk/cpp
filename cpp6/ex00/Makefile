@@ -6,7 +6,7 @@
 #    By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 17:28:37 by erigonza          #+#    #+#              #
-#    Updated: 2025/02/19 12:23:48 by erigonza         ###   ########.fr        #
+#    Updated: 2025/02/22 10:50:21 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,23 +14,24 @@ NAME		:= ScalarConverter
 
 SRC			:= main.cpp ScalarConverter.cpp
 
-OBJ_DIR		:= obj/
+TMP_DIR		:= obj/
 
 HEADERS		:= ScalarConverter.hpp
 
-OBJ			:= $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
+OBJ			:= $(addprefix $(TMP_DIR), $(SRC:.cpp=.o))
+DEPS		:= $(addprefix $(TMP_DIR)/, $(SRC:.cpp=.d))
 
 CC			:= c++
 
-FLAGS		:= -Wall -Wextra -Werror -std=c++98 -g
+FLAGS		:= -Wall -Wextra -Werror -std=c++98 -g -MMD
 
 RM			:= @/bin/rm -rf
 
-all: Makefile $(NAME)
+all: $(NAME)
 
-$(OBJ_DIR)%.o: %.cpp $(HEADERS) Makefile
+$(TMP_DIR)%.o: %.cpp $(HEADERS) Makefile
 	@printf "\033[0;33m\r🔨 $< ✅ \033[0m"
-	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(TMP_DIR)
 	@$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
@@ -43,7 +44,7 @@ c clean:
 	$(RM) $(OBJ)
 
 f fclean: clean
-	$(RM) $(OBJ_DIR)
+	$(RM) $(TMP_DIR)
 	$(RM) $(NAME)
 	
 r re: fclean all
