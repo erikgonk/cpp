@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erigonza <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 18:07:20 by erigonza          #+#    #+#             */
-/*   Updated: 2024/10/26 18:07:36 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/02/22 10:16:01 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Ice::Ice(void) : AMateria("ice") {
 	std::cout << "Default constructor called for the materia " << this->_type << std::endl;
 }
 
-Ice::Ice(const Ice& copy) {
+Ice::Ice(const Ice& copy) : AMateria(copy){
 	*this = copy;
 	std::cout << "Copy constructor called for materia " << copy.getType() << std::endl;
 }
