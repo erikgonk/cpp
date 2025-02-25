@@ -6,7 +6,7 @@
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 16:21:49 by erigonza          #+#    #+#             */
-/*   Updated: 2025/02/24 16:30:59 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/02/25 13:35:05 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,6 @@ void Span::addNumber(int number)
 	if (numbers_.size() >= size_)
 		throw std::out_of_range("Span is full");
 	numbers_.push_back(number);
-}
-
-template <class It> void Span::addNumber(It begin, It end)
-{
-	if (numbers_.size() + std::distance(begin, end) > size_)
-		throw std::out_of_range("Span is full");
-	numbers_.insert(numbers_.end(), begin, end);
 }
 
 int Span::shortestSpan(void) const

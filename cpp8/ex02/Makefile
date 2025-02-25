@@ -6,7 +6,7 @@
 #    By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 17:28:37 by erigonza          #+#    #+#              #
-#    Updated: 2025/02/24 12:20:43 by erigonza         ###   ########.fr        #
+#    Updated: 2025/02/25 13:37:03 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC			:= main.cpp
 
 TMP_DIR		:= obj/
 
-HEADERS		:= Array.hpp
+HEADERS		:= MutantStack.hpp
 
 OBJ			:= $(addprefix $(TMP_DIR), $(SRC:.cpp=.o))
 DEPS		:= $(addprefix $(TMP_DIR)/, $(SRC:.cpp=.d))
