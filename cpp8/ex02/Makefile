@@ -6,11 +6,11 @@
 #    By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 17:28:37 by erigonza          #+#    #+#              #
-#    Updated: 2025/02/25 13:37:03 by erigonza         ###   ########.fr        #
+#    Updated: 2025/02/25 14:26:34 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= Array
+NAME		:= mutatedAbomination
 
 SRC			:= main.cpp
 
