@@ -6,7 +6,7 @@
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 13:37:06 by erigonza          #+#    #+#             */
-/*   Updated: 2025/02/25 14:59:02 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:32:29 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,24 @@
 # include <list>
 # include <stack>
 
-template <class T> class MutantStack : public std::stack<T>
+# include <unistd.h>
+# include <cstdlib>
+# include <ctime>
+
+#define RESET   "\033[0m"
+#define BOLD     "\033[1m"
+#define RED_BACKGROUND "\033[41m"
+#define RED     "\033[31m"
+#define BOLD_RED "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[1;33m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+#define WHITE   "\033[37m"
+
+template <class T>
+class MutantStack : public std::stack<T>
 {
   public:
 	MutantStack(void)
@@ -78,6 +95,12 @@ template <class T> class MutantStack : public std::stack<T>
 	{
 		return (std::stack<T>::c.rend());
 	}
+
+	void	addRandomNumbersToStack(size_t size);
+	void	myTests(void);
+	void	mainTests(void);
+
+	void PrintIt(Iterator it, Iterator ite);
 };
 
 #endif

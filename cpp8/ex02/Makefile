@@ -6,11 +6,11 @@
 #    By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 17:28:37 by erigonza          #+#    #+#              #
-#    Updated: 2025/02/25 14:26:34 by erigonza         ###   ########.fr        #
+#    Updated: 2025/02/26 13:22:21 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= mutatedAbomination
+NAME		:= MutantStack
 
 SRC			:= main.cpp
 
@@ -42,18 +42,14 @@ v valgrind: $(NAME)
 	clear
 	@valgrind --leak-check=full --track-origins=yes ./$(NAME)
 
-c clean:
-	$(RM) $(OBJ)
-
-f fclean: clean
+f fclean:
 	$(RM) $(TMP_DIR)
 	$(RM) $(NAME)
 	
-r re: fclean all
+re: fclean all
 
-e execute: $(NAME)
+r run: $(NAME)
 	clear
 	@./$(NAME)
 
-.PHONY: all clean fclean re v valgrind c f r e execute
-
+.PHONY: all f fclean re v valgrind r run
