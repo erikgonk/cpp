@@ -6,7 +6,7 @@
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 15:39:47 by erigonza          #+#    #+#             */
-/*   Updated: 2025/02/25 13:27:34 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/02/26 11:24:26 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(void)
 	lst.push_back(30);
 	lst.push_back(40);
 	lst.push_back(50);
-	std::list<int>::iterator lst_it(easyfind(lst, 35));
+	std::list<int>::iterator lst_it(easyfind(lst, 30));
 	if (lst_it != lst.end())
 		std::cout << "Found: " << *lst_it << std::endl;
 	else
