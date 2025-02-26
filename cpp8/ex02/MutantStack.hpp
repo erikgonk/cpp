@@ -6,7 +6,7 @@
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 13:37:06 by erigonza          #+#    #+#             */
-/*   Updated: 2025/02/26 14:32:29 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:14:49 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,12 +95,12 @@ class MutantStack : public std::stack<T>
 	{
 		return (std::stack<T>::c.rend());
 	}
-
+	
 	void	addRandomNumbersToStack(size_t size);
 	void	myTests(void);
 	void	mainTests(void);
-
-	void PrintIt(Iterator it, Iterator ite);
+	
+	template <typename Iterator> void PrintIt(Iterator it, Iterator ite);
 };
 
 #endif

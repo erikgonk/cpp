@@ -6,35 +6,11 @@
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:26:10 by erigonza          #+#    #+#             */
-/*   Updated: 2025/02/26 14:32:15 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:15:26 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
-
-template <typename T>
-void printMutantStack(const MutantStack<T>& mstack) {
-    typename MutantStack<T>::const_iterator it = mstack.begin();
-    typename MutantStack<T>::const_iterator ite = mstack.end();
-	
-    while (it != ite) {
-        std::cout << *it << " ";
-        ++it;
-    }
-	std::cout << std::endl;
-}
-
-template <typename T>
-void revPrintMutantStack(const MutantStack<T>& mstack) {
-    typename MutantStack<T>::const_reverse_iterator it = mstack.rbegin();
-    typename MutantStack<T>::const_reverse_iterator ite = mstack.rend();
-	
-    while (it != ite) {
-        std::cout << *it << " ";
-        ++it;
-    }
-	std::cout << std::endl;
-}
 
 template <typename T>
 template <typename Iterator>
@@ -43,7 +19,7 @@ void MutantStack<T>::PrintIt(Iterator it, Iterator ite) {
         std::cout << *it << " ";
         ++it;
     }
-	std::cout << std::endl;
+    std::cout << std::endl;
 }
 
 template <typename T>
@@ -72,16 +48,15 @@ void MutantStack<T>::myTests(void) {
 	mstack.PrintIt(mstack.rbegin(), mstack.rend());
 	mstack.pop();
 	std::cout << "--------------------------------------" << std::endl;
-	printMutantStack(mstack);
+	mstack.PrintIt(mstack.begin(), mstack.end());
 	std::stack<int> s(mstack);
 	std::cout << "--------------------------------------" << std::endl;
 	MutantStack<int> mstack2;
 	mstack2.addRandomNumbersToStack(10);
-	printMutantStack(mstack2);
+	mstack.PrintIt(mstack.begin(), mstack.end());
 }
 
 template <typename T>
-
 void MutantStack<T>::mainTests(void) {
 	MutantStack<int> mstack;
 	mstack.push(5);
@@ -107,6 +82,7 @@ void MutantStack<T>::mainTests(void) {
 
 int	main(void)
 {
+	std::cout << "--------------------------------------" << std::endl;
 	MutantStack<int> main;
 	main.mainTests();
 	MutantStack<int> erik;
