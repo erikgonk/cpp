@@ -6,7 +6,7 @@
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 16:21:49 by erigonza          #+#    #+#             */
-/*   Updated: 2025/02/25 13:35:05 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/02/26 12:15:58 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,27 +43,28 @@ void Span::addNumber(int number)
 	numbers_.push_back(number);
 }
 
-int Span::shortestSpan(void) const
-{
-	if (numbers_.size() < 2)
-		throw std::out_of_range("Span is too short");
-	std::vector<int> sorted(numbers_);
-	std::sort(sorted.begin(), sorted.end());
-	int min(sorted[1] - sorted[0]);
-	for (size_t i = 1; i < size_; i++)
-	{
-		int span(sorted[i] - sorted[i - 1]);
-		if (span < min)
-			min = span;
-	}
-	return (min);
+int Span::shortestSpan(void) const {
+    if (numbers_.size() < 2) {
+        throw std::out_of_range("Span is too short");
+    }
+
+    int_vec sorted(numbers_);
+    std::sort(sorted.begin(), sorted.end());
+
+    int minSpan = std::numeric_limits<int>::max();
+
+    for (const_iterator it = sorted.begin(); it != sorted.end() - 1; ++it) {
+        minSpan = std::min(minSpan, *(it + 1) - *it);
+    }
+
+    return minSpan;
 }
 
 int Span::longestSpan(void) const
 {
 	if (numbers_.size() < 2)
 		throw std::out_of_range("Span is too short");
-	std::vector<int> sorted(numbers_);
+	int_vec sorted(numbers_);
 	std::sort(sorted.begin(), sorted.end());
 	return (sorted[size_ - 1] - sorted[0]);
 }
