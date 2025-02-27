@@ -6,7 +6,7 @@
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 17:17:44 by erigonza          #+#    #+#             */
-/*   Updated: 2025/02/26 18:12:06 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/02/27 10:20:07 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 # include  <stdlib.h> // for system(clear);
 # include <iostream>
+# include <fstream> // open files 
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
@@ -39,13 +40,21 @@
 #define B_CYN "\x1B[46m"
 #define B_WHI "\x1B[47m"
 
-class btc
+class BitcoinExchange
 {
   public:
-	btc(void);
-	btc(const btc &other);
-	btc &operator=(const btc &other);
-	~btc(void);
+	BitcoinExchange(void);
+	BitcoinExchange(const BitcoinExchange &other);
+	BitcoinExchange &operator=(const BitcoinExchange &other);
+	~BitcoinExchange(void);
+
+	void	execute(char const *file);
+	class FileClosedException : public std::exception {
+		public:
+			const char *what() const throw() {
+				return "\033[31mCould not open file!\033[0m";
+			}
+	};
 };
 
 #endif
