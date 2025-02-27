@@ -6,7 +6,7 @@
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 17:17:47 by erigonza          #+#    #+#             */
-/*   Updated: 2025/02/27 10:19:45 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:03:13 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,11 @@ BitcoinExchange::BitcoinExchange(void) {
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) {
+	(void)other;
 }
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
-	if  (this != &copy) {
-		this->_type = copy._type;
-	}
+	(void)other;
     return *this;
 }
 
@@ -34,9 +33,15 @@ void BitcoinExchange::execute(char const *fileName) {
 		throw FileClosedException();
 
 	std::string line;
-	std::getline(file, line);
-
-	std::cout << line << std::endl;
+	for (int i = -1; i < 5; ++i) {
+		std::getline(file, line);
+		std::string date;
+		std::string sValue;
+		std::istringstream ss(line);
+		std::getline(ss, date, '|');
+		std::getline(ss, sValue, '|');
+		std::cout << "date: " << date << "\nline: " << line << '\n';
+	}
 	file.close();
 }
 

@@ -6,7 +6,7 @@
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 17:17:44 by erigonza          #+#    #+#             */
-/*   Updated: 2025/02/27 10:20:07 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/02/27 18:55:55 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include  <stdlib.h> // for system(clear);
 # include <iostream>
 # include <fstream> // open files 
+#include <sstream> // stream
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
@@ -52,7 +53,7 @@ class BitcoinExchange
 	class FileClosedException : public std::exception {
 		public:
 			const char *what() const throw() {
-				return "\033[31mCould not open file!\033[0m";
+				return "\033[31m       Could not open file!\033[0m";
 			}
 	};
 };
