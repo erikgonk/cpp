@@ -6,7 +6,7 @@
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 17:17:44 by erigonza          #+#    #+#             */
-/*   Updated: 2025/02/27 18:55:55 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/02/28 12:39:47 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
-# include  <stdlib.h> // for system(clear);
-# include <iostream>
-# include <fstream> // open files 
-#include <sstream> // stream
+# include	<stdlib.h> // for system(clear);
+# include	<iostream>
+# include	<fstream> // open files 
+#include	<sstream> // stream
+# include	<map>
+# include	<exception>
+# include	<iomanip> // set precision
+
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
@@ -43,19 +47,41 @@
 
 class BitcoinExchange
 {
-  public:
-	BitcoinExchange(void);
-	BitcoinExchange(const BitcoinExchange &other);
-	BitcoinExchange &operator=(const BitcoinExchange &other);
-	~BitcoinExchange(void);
+	private:
+		std::map<std::string, double> _quotes;
+		void readDatabase();
+		bool validateDate(const std::string &date);
+		double validatePrice(const std::string &sValue);
+		void applyExchangeRate(const std::string &date, double price);
 
-	void	execute(char const *file);
-	class FileClosedException : public std::exception {
+	public:
+		BitcoinExchange(void);
+		BitcoinExchange(const BitcoinExchange &other);
+		BitcoinExchange &operator=(const BitcoinExchange &other);
+		~BitcoinExchange(void);
+
+		void	execute(char const *file);
+
+		class FileClosedException : public std::exception {
+			public:
+				const char *what() const throw() {
+					return "\033[31m       Could not open file!\033[0m";
+				}
+		};
+
+		class WrongFormatException : public std::exception {
+			public:
+				virtual const char *what() const throw() {
+					return "\033[31mFile format incorrect!\033[0m";
+				}
+		};
+
+		class InvalidPriceFormatException : public std::exception {
 		public:
-			const char *what() const throw() {
-				return "\033[31m       Could not open file!\033[0m";
+			virtual const char *what() const throw() {
+				return "\033[31mPrice format incorrect!\033[0m";
 			}
-	};
+		};
 };
 
 #endif
