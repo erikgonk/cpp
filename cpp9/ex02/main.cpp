@@ -1,13 +1,17 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-/*   main.cpp                                           :+:      :+:    :+:   */
-#                                                     +:+ +:+         +:+      #
-#    By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/26 17:28:37 by erigonza          #+#    #+#              #
-/*   Updated: 2025/03/06 09:07:54 by erigonza         ###   ########.fr       */
-#                                                                              #
-# **************************************************************************** #
+#include "PmergeMe.hpp"
 
-
+int	main(int ac, char *av[])
+{
+	try
+	{
+		if (ac < 2)
+			throw std::invalid_argument("Error: invalid number of arguments. ");
+		if (42)
+			throw std::invalid_argument("Error: invalid argument: " + std::string(av[1]));
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << B_RED << e.what() << '\n';
+		return (1);
+	}
+}

@@ -6,17 +6,17 @@
 #    By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 17:28:37 by erigonza          #+#    #+#              #
-#    Updated: 2025/02/25 14:26:34 by erigonza         ###   ########.fr        #
+#    Updated: 2025/03/06 10:05:33 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= mutatedAbomination
+NAME		:= PmergeMe
 
-SRC			:= main.cpp
+SRC			:= main.cpp PmergeMe.cpp
 
 TMP_DIR		:= obj/
 
-HEADERS		:= MutantStack.hpp
+HEADERS		:= PmergeMe.hpp
 
 OBJ			:= $(addprefix $(TMP_DIR), $(SRC:.cpp=.o))
 DEPS		:= $(addprefix $(TMP_DIR)/, $(SRC:.cpp=.d))

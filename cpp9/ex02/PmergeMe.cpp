@@ -1,13 +1,21 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
-#                                                     +:+ +:+         +:+      #
-#    By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/26 17:28:37 by erigonza          #+#    #+#              #
-/*   Updated: 2025/03/06 09:07:46 by erigonza         ###   ########.fr       */
-#                                                                              #
-# **************************************************************************** #
+#include "PmergeMe.hpp"
 
+PmergeMe::PmergeMe(void)
+{
+}
+
+PmergeMe::PmergeMe(const PmergeMe &other)
+{
+	static_cast<void>(other);
+}
+
+PmergeMe &PmergeMe::operator=(const PmergeMe &other)
+{
+	static_cast<void>(other);
+	return (*this);
+}
+
+PmergeMe::~PmergeMe(void)
+{
+}
 
