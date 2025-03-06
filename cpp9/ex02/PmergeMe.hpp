@@ -1,12 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/06 17:50:17 by erigonza          #+#    #+#             */
+/*   Updated: 2025/03/06 18:23:21 by erigonza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PMERGEME_HPP
 # define PMERGEME_HPP
 
-# include <ctime>
-# include <deque>
-# include <iomanip>
 # include <iostream>
-# include <sstream>
+# include <cstdlib>
+# include <deque>
 # include <vector>
+# include <sys/time.h>
+# include <iomanip>
+# include <algorithm>
+
+# define MICROSEC 1000000
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
@@ -30,14 +45,53 @@
 #define B_CYN "\x1B[46m"
 #define B_WHI "\x1B[47m"
 
-class PmergeMe
-{
-	public:
-		PmergeMe(void);
-		PmergeMe(const PmergeMe &other);
-		PmergeMe &operator=(const PmergeMe &other);
-		~PmergeMe(void);
-	// private:
+using std::string;
+
+class PmergeMe {
+    public:
+        PmergeMe (char **argv);
+        PmergeMe (const PmergeMe& cpy);
+        ~PmergeMe ();    
+        PmergeMe  &operator=(const PmergeMe  &src);
+
+		typedef typename std::vector<unsigned int> stdVector;
+		typedef typename std::deque<unsigned int> stdDeque;
+		
+		void add_arguments(char **arg);
+		void print_result();
+		void print_time();
+		void print_vec();
+		void print_vec(stdVector aux);
+		void print_vec(stdVector aux, size_t groupsize);
+		bool is_repeat(int n, stdVector vec);
+		bool is_valid(string arg);
+		void merge_process();
+
+		void compare_and_insert(stdVector &main, stdVector src, size_t pos, size_t groupsize);
+		stdVector vector_merge(stdVector &src);
+		stdVector merge_vectors(stdVector src, size_t groupsize);
+		stdVector jacob_sort(stdVector src, size_t groupsize);
+		void insert_group(stdVector &main, stdVector src, size_t init, size_t end, stdVector::iterator pos);
+
+		void compare_and_insert(stdDeque &main, stdDeque src, size_t pos, size_t groupsize);
+		stdDeque deque_merge(stdDeque &src);
+		stdDeque merge_deques(stdDeque src, size_t groupsize);
+		stdDeque jacob_sort(stdDeque src, size_t groupsize);
+		void insert_group(stdDeque &main, stdDeque src, size_t init, size_t end, stdDeque::iterator pos);
+
+		class errorException : public std::logic_error {
+			public:
+				errorException();
+		};
+
+	private:
+		stdDeque	deq;
+		stdVector	vec;
+		string						arg;
+		unsigned int				amount;
+		float						vecTime;
+		float						deqTime;
+		int							jacob[15];
 };
 
 #endif

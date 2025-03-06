@@ -6,7 +6,7 @@
 #    By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 17:28:37 by erigonza          #+#    #+#              #
-#    Updated: 2025/02/25 16:19:43 by erigonza         ###   ########.fr        #
+#    Updated: 2025/03/06 16:32:25 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,9 +51,12 @@ f fclean: clean
 	
 r re: fclean all
 
+
+RUN_ARGS = "100 56 -"
+
 e execute: $(NAME)
 	clear
-	@./$(NAME)
+	@./$(NAME) $(RUN_ARGS)
 
-.PHONY: all clean fclean re v valgrind c f r e execute
+.PHONY: all clean fclean re v valgrind c f r execute
 

@@ -1,17 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/06 18:15:40 by erigonza          #+#    #+#             */
+/*   Updated: 2025/03/06 18:16:33 by erigonza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PmergeMe.hpp"
 
-int	main(int ac, char *av[])
-{
-	try
-	{
-		if (ac < 2)
-			throw std::invalid_argument("Error: invalid number of arguments. ");
-		if (42)
-			throw std::invalid_argument("Error: invalid argument: " + std::string(av[1]));
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << B_RED << e.what() << '\n';
-		return (1);
-	}
+int main(int ac, char **av) {
+    try {
+        if (ac < 2 || ac > 10000)
+            throw PmergeMe::errorException();
+        PmergeMe    merge(&av[1]);
+        merge.merge_process();
+        merge.print_time();
+    }
+    catch (PmergeMe::errorException &e) {
+        std::cout << B_RED << e.what() << RESET << std::endl;
+    }
 }

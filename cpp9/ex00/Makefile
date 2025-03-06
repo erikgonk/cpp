@@ -6,7 +6,7 @@
 #    By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 17:28:37 by erigonza          #+#    #+#              #
-#    Updated: 2025/02/26 17:44:58 by erigonza         ###   ########.fr        #
+#    Updated: 2025/03/06 16:33:24 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ r re: fclean all
 
 e execute: $(NAME)
 	clear
-	@./$(NAME)
+	@./$(NAME) input.txt
 
 .PHONY: all clean fclean re v valgrind c f r e execute
 
