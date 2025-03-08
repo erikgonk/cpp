@@ -6,7 +6,7 @@
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 17:50:04 by erigonza          #+#    #+#             */
-/*   Updated: 2025/03/06 18:23:51 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/03/08 09:27:53 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -232,18 +232,6 @@ std::vector<unsigned int> PmergeMe::merge_vectors(stdVector src, size_t groupsiz
 }
 
 /*
-	This function initializes and calls the merge_sort function to sort the unput vector.
-	Once is sorted its returned.
-*/
-std::vector<unsigned int> PmergeMe::vector_merge(stdVector &src) {
-	stdVector main = src;
-	size_t groupsize = 1;
-
-	main = merge_vectors(main, groupsize);
-	return main;
-}
-
-/*
 	This function determines the range of elements and the insertion position on the deque. 
 */
 void PmergeMe::insert_group(stdDeque &main, stdDeque src, size_t init, size_t end, stdDeque::iterator pos) {
@@ -363,18 +351,6 @@ std::deque<unsigned int> PmergeMe::merge_deques(stdDeque src, size_t groupsize) 
 }
 
 /*
-	This function begins with a group size of 1 and progressively merges the deque until is fully
-	sorted.
-*/
-std::deque<unsigned int> PmergeMe::deque_merge(stdDeque &src) {
-	stdDeque main = src;
-	size_t groupsize = 1;
-
-	main = merge_deques(main, groupsize);
-	return main;
-}
-
-/*
 	This function prints the processing time for sorting a vector and a deque. Converts
 	microseconds to milliseconds, formats the output and displays the times for both data structures.
 */
@@ -398,14 +374,17 @@ void PmergeMe::merge_process() {
 	struct timeval start, end;
 
 	gettimeofday(&start, NULL);
-	this->deq = deque_merge(this->deq);
+
+	this->deq = merge_deques(this->deq, 1);
+
 	gettimeofday(&end, NULL);
 	this->deqTime = (end.tv_sec - start.tv_sec) * MICROSEC + end.tv_usec - start.tv_usec;
 
 	print_result();
 
 	gettimeofday(&start, NULL);
-	this->vec = vector_merge(this->vec);
+	this->vec = merge_vectors(this->vec, 1);
+
 	gettimeofday(&end, NULL);
 	this->vecTime = (end.tv_sec - start.tv_sec) * MICROSEC + end.tv_usec - start.tv_usec;
 }

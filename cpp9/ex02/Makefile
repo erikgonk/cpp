@@ -6,7 +6,7 @@
 #    By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 17:28:37 by erigonza          #+#    #+#              #
-#    Updated: 2025/03/06 17:58:03 by erigonza         ###   ########.fr        #
+#    Updated: 2025/03/08 09:19:52 by erigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,10 +49,10 @@ f fclean: clean
 	$(RM) $(TMP_DIR)
 	$(RM) $(NAME)
 	
-r re: fclean all
+re: fclean all
 
 ARGS		:= 0 1 42 41 40 10 20
-e execute: $(NAME)
+r run: $(NAME)
 	clear
 	@./$(NAME) $(ARGS)
 
