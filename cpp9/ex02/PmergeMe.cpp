@@ -6,14 +6,14 @@
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 17:50:04 by erigonza          #+#    #+#             */
-/*   Updated: 2025/03/08 19:58:53 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/03/08 20:22:57 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 //                                                                            //
-//                                 OCF                                        //
+//                             OrCaForm                                       //
 //                                                                            //
 
 PmergeMe::PmergeMe(char **arg) {
@@ -140,7 +140,7 @@ void PmergeMe::insert_group(stdVector &main, stdVector src, size_t init, size_t 
 /*
 	Merge the vectors by grouping them into pairs or larger broups recursively.
 	Compares the elements at a calculated pos and inserts them into the correct order.
-	This happens until the vector is fully merged	
+	This happens until the vector is fully merged
 */
 stdVector PmergeMe::merge_vectors(stdVector src, size_t groupsize) {
 	stdVector aux;
@@ -179,15 +179,13 @@ stdVector PmergeMe::merge_vectors(stdVector src, size_t groupsize) {
 */
 void PmergeMe::merge_process() {
 	struct timeval start, end;
+	print_result();
 
 	gettimeofday(&start, NULL);
-
 	this->deq = merge_deques(this->deq, 1);
 
 	gettimeofday(&end, NULL);
 	this->deqTime = (end.tv_sec - start.tv_sec) * MICROSEC + end.tv_usec - start.tv_usec;
-
-	print_result();
 
 	gettimeofday(&start, NULL);
 	this->vec = merge_vectors(this->vec, 1);
