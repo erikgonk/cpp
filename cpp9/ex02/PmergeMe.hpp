@@ -6,7 +6,7 @@
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 17:50:17 by erigonza          #+#    #+#             */
-/*   Updated: 2025/03/08 09:28:43 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/03/08 19:58:39 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@
 
 using std::string;
 
+typedef typename std::vector<unsigned int> stdVector;
+typedef typename std::deque<unsigned int> stdDeque;
+
 class PmergeMe {
     public:
         PmergeMe (char **argv);
@@ -54,15 +57,9 @@ class PmergeMe {
         ~PmergeMe ();    
         PmergeMe  &operator=(const PmergeMe  &src);
 
-		typedef typename std::vector<unsigned int> stdVector;
-		typedef typename std::deque<unsigned int> stdDeque;
-		
 		void add_arguments(char **arg);
 		void print_result();
 		void print_time();
-		void print_vec();
-		void print_vec(stdVector aux);
-		void print_vec(stdVector aux, size_t groupsize);
 		bool is_repeat(int n, stdVector vec);
 		bool is_valid(string arg);
 		void merge_process();
@@ -83,8 +80,8 @@ class PmergeMe {
 		};
 
 	private:
-		stdDeque	deq;
-		stdVector	vec;
+		stdDeque					deq;
+		stdVector					vec;
 		string						arg;
 		unsigned int				amount;
 		float						vecTime;
