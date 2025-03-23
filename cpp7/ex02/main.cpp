@@ -6,7 +6,7 @@
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 17:06:08 by erigonza          #+#    #+#             */
-/*   Updated: 2025/02/24 13:36:41 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/03/06 17:48:21 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main()
 	{
 		if (mirror[i] != numbers[i])
 		{
-			std::cerr << "didn't save the same value!!" << std::endl;
+			std::cout << "didn't save the same value!!" << std::endl;
 			return (1);
 		}
     }
@@ -41,7 +41,7 @@ int	main()
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cout << e.what() << '\n';
 	}
 	try
 	{
@@ -49,7 +49,7 @@ int	main()
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cout << e.what() << '\n';
 	}
 	try
 	{
@@ -57,7 +57,7 @@ int	main()
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cout << e.what() << '\n';
 	}
 	for (int i = 0; i < MAX_VAL; i++)
 	{

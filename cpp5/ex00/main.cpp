@@ -6,7 +6,7 @@
 /*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:46:30 by erigonza          #+#    #+#             */
-/*   Updated: 2025/02/12 15:25:05 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:24:52 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(void)
 	}
 	catch (const std::exception &er)
 	{
-		std::cerr << er.what() << '\n';
+		std::cout << er.what() << '\n';
 	}
 	return (0);
 }

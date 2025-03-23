@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erigonza <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: erigonza <erigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:12:31 by erigonza          #+#    #+#             */
-/*   Updated: 2024/10/18 15:34:03 by erigonza         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:24:47 by erigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ bool    openFile( std::fstream &file, std::string filename, std::ios::openmode m
     file.open(filename.c_str(), mode);
 
     if (file.fail()) {
-        std::cerr << RED_BACKGROUND << "error: opening file: " << filename << RESET << std::endl;
+        std::cout << RED_BACKGROUND << "error: opening file: " << filename << RESET << std::endl;
         return (false);
     }
     return (true);
